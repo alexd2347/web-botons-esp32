@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Estado de los botones</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Estado de los botones shidos</h1>
+    <div id="botones">
+        <div id="boton1" class="boton"></div>
+        <div id="boton2" class="boton"></div>
+        <div id="boton3" class="boton"></div>
+        <div id="boton4" class="boton"></div>
+    </div>
+    <script>
+        function actualizarEstadoBotones() {
+            fetch('/estado')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('boton1').innerText = 'Boton 1: ' + (data.charAt(0) === '1' ? 'No presionado' : 'Presionado');
+                    document.getElementById('boton2').innerText = 'Boton 2: ' + (data.charAt(1) === '1' ? 'No presionado' : 'Presionado');
+                    document.getElementById('boton3').innerText = 'Boton 3: ' + (data.charAt(2) === '1' ? 'No presionado' : 'Presionado');
+                    document.getElementById('boton4').innerText = 'Boton 4: ' + (data.charAt(3) === '1' ? 'No presionado' : 'Presionado');
+                });
+        }
+
+        // Actualizar el estado de los botones cada 1 segundo
+        setInterval(actualizarEstadoBotones, 1000);
+    </script>
+</body>
+
+</html>

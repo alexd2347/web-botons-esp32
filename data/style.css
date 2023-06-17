@@ -1,0 +1,52 @@
+body {
+    background: rgb(130, 150, 255);
+    background: linear-gradient(90deg, rgba(130, 150, 255, 1) 0%, rgba(255, 125, 151, 1) 100%);
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333333;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.boton {
+    width: 15rem;
+    margin: 1rem;
+    padding: 3rem .5rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+}
+#boton1:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: blue;
+    transition: color 0.3s;
+  }
+#boton1[data-text="Presionado"]:before {
+    color: rgb(90, 255, 49);
+}
+#boton1[data-text="No presionado"]:before {
+    color: rgb(63, 49, 255);
+}
+.boton:hover {
+    transform: scale(1.01);
+}
+
+
